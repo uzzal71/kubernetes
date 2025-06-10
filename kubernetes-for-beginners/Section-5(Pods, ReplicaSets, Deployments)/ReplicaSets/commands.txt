@@ -1,0 +1,3 @@
+--> kubectl create -f rc-definition.yaml
+--> kubectl get replicationcontroller
+--> kubectl get pods
