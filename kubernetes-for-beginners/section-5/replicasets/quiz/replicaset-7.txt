@@ -1,0 +1,30 @@
+ReplicaSet - 7
+Introduction: Let us now link the pods to the ReplicaSet by updating selectors. 
+
+Instruction: Add a property "matchLabels" under selector and copy the labels defined in the pod-definition under it. 
+
+Note: This may not work in play-with-k8s as it runs on 1.8 version of kubernetes. ReplicaSets moved to apps/v1 in 1.9 version of Kubernetes.
+
+replicaset-definition.yaml
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  labels:
+    app: mywebsite
+    tier: frontend
+spec:
+  replicas: 4
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+  selector:
+    matchLabels:
+      app: myapp

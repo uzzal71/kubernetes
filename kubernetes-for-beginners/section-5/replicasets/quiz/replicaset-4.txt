@@ -1,0 +1,18 @@
+ReplicaSet - 4
+Introduction: Let us now get to the specification 
+
+Instruction: The spec section for ReplicaSet has 3 fields: replicas, template and selector. Simply add these properties. Do not add any values yet.
+
+replicaset-definition.yaml
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  labels:
+    app: mywebsite
+    tier: frontend
+spec:
+  replicas:
+  template:
+  selector:
