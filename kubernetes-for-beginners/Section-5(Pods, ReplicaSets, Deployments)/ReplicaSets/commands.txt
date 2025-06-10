@@ -1,3 +1,24 @@
+Replication Controller
+
 --> kubectl create -f rc-definition.yaml
 --> kubectl get replicationcontroller
 --> kubectl get pods
+
+Replicaset
+
+--> kubectl create -f replicaset-definition.yaml
+--> kubectl get replicaset
+--> kubectl get pods
+
+Scale: suppose replicas now is 6 then (Three alternative options)
+
+--> kubectl replace -f replicaset-definition.yaml
+--> kubectl scale --replicas=6 -f replicaset-definition.yaml
+--> kubectl scale --replicas=6 replicaset myapp-replicaset
+
+Delete replicaset
+--> kubectl delete replicaset myapp-replicaset
+*Also deletes all underlying PODS
+
+Replace 
+--> kubectl replace -f replicaset-definition.yaml
