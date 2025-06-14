@@ -1,0 +1,93 @@
+1. How many PODs exist on the system?
+   In the current(default) namespace.
+--> kubectl get pods
+
+2. How many ReplicaSets exist on the system?
+   In the current(default) namespace.
+--> kubectl get replicaset
+
+3. How about now? How many ReplicaSets do you see?
+   We just made a few changes!
+--> kubectl get replicaset
+
+4. How many PODs are DESIRED in the new-replica-set?
+--> kubectl get replicaset
+
+5. What is the image used to create the pods in the new-replica-set?
+--> kubectl describe replicaset new-replica-set
+
+6. How many PODs are READY in the new-replica-set?
+--> kubectl get replicaset
+
+7. Why do you think the PODs are not ready?
+--> kubectl describe pod new-replica-set
+
+8. Delete any one of the 4 PODs?
+--> kubectl get pods
+--> kubectl delete pod new-replica-set-wkzjh
+
+9. How many pods exis now?
+--> kubectl get pods
+
+10. Why are there 4 PODs, even after you deleted one?
+--> ReplicaSet ensures that desired number of PODs always run
+
+11. Create a ReplicaSet using the replicaset-definition-1.yaml file located at /root/.
+    There is an issue with the file, so try to fix it.
+--> ls /root
+replicaset-definition-1.yaml  replicaset-definition-2.yaml sample.yaml
+
+--> kubectl create -f /root/replicaset-definition-1.yaml
+error: unable the recognize "/root/replicaset-definition-1.yaml": no match for kind "ReplicaSet" in version "v1"
+
+--> cat /root/replicaset-definition-1.yaml
+--> kubectl explain replicaset
+
+Update apiVersion: apps/v1
+
+--> kubectl create -f /root/replicaset-definition-1.yaml
+
+12. Fix the issue in the replicaset-definition-2.yaml file and create a ReplicaSet using it.
+    The file is located at /root/.
+--> ls /root
+replicaset-definition-1.yaml  replicaset-definition-2.yaml sample.yaml
+
+--> kubectl create -f /root/replicaset-definition-2.yaml
+
+Update labels
+
+--> kubectl create -f /root/replicaset-definition-2.yaml
+
+13. Delete the two newly created ReplicaSets - replicaset-1 and replicaset-2
+--> kubectl get rs
+--> kubectl delete rs replicaset-1
+--> kubectl delete rs replicaset-2
+
+14. Fix the original replica set new-replia-set to
+   use the corrent busybox image
+   Either delete and recreate the ReplicaSet or Update
+   the existing ReplicaSet and then delete all PODs, so
+   new ones with the correct image will be created.
+--> kubectl edit rs new-replicaset-set
+
+Update image
+
+--> kubectl get pods
+--> kubectl get rs
+--> kubectl describe rs
+--> kubectl delete pod new-replicaset-vpkh8
+--> kubectl get pods
+--> kubectl get rs
+
+15. Scale the ReplicaSet to 5 PODs
+    use kubectl scale command or edit the
+    replicaset using kubectl edit replicaset.
+--> kubectl scale rs new-replica-set --replicas=5
+--> kubectl get pods
+--> kubectl edit rs new-replica-set
+
+16. Now scale the ReplicaSet down to 2 PODs.
+    use kubectl scale command or edit the
+    replicaset using kubectl edit replicaset.
+--> kubectl edit rs new-replica-set
+--> kubectl get pods
