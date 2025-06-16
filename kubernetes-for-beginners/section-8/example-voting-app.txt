@@ -1,0 +1,40 @@
+Docker Deploy:
+++++++++++++++++++++++++
+voting-app
+result-app
+redis
+postgres
+worker
+
+Kubernetes Deploy:
++++++++++++++++++++
+
+Goals:
++++++++++++++++++++
+1. Deploy Containers
+2. Enable Connectivity
+3. External Access
+
+Steps:
+++++++++++++++++++++++++++++++++
+1. Deploy PODs 
+    POD: voting-app and port: 80
+    POD: result-app and port: 80
+    POD: redis and port: 6379
+    POD: postgres and port: 5432
+    POD: worker
+2. Create Service(ClusterIP)
+    1. redis
+    2. db
+3. Create Service(NodePort)
+    1. voting-app
+    2. result-app
+
+
+Images:
++++++++++++++++++++++++++++++++++
+kodekoud/examplevotingapp_vote:v1
+kodekoud/examplevotingapp_result:v1
+kodekoud/examplevotingapp_worker:v1
+redis
+postgres
