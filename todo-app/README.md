@@ -1,0 +1,8 @@
+```bash
+docker compose
+docker compose up -d
+docker compose up --build -d
+docker compose down
+docker compose logs -f
+docker compose ps
+```
