@@ -1,30 +1,36 @@
-version: "3.8"
+version: "3.9"
 
 services:
-  app:
+  todo-app:
+    container_name: todo-app
     build: .
-    container_name: todo_app
     ports:
-      - "5000:5000"
-    environment:
-      - MONGODB_URI=mongodb://mongo:27017/todoapp
-      - JWT_SECRET=supersecretkey
-      - NODE_ENV=production
+      - "4000:4000"
     depends_on:
       - mongo
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-    restart: always
+    environment:
+      NODE_ENV: development
+      PORT: 4000
+      MONGODB_URI: mongodb://mongo:27017/todoapp
+      JWT_SECRET: supersecretkey
+      JWT_EXPIRES_IN: 1d
+      CORS_ORIGIN: "*"
+    networks:
+      - todo-network
 
   mongo:
-    image: mongo:6
-    container_name: todo_mongo
-    restart: always
+    container_name: todo-mongo
+    image: mongo:7
     ports:
-      - "27017:27017"
+      - "27018:27017"
     volumes:
-      - mongo_data:/data/db
+      - mongo-data:/data/db
+    networks:
+      - todo-network
 
 volumes:
-  mongo_data:
+  mongo-data:
+
+networks:
+  todo-network:
+    driver: bridge
