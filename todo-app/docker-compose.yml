@@ -22,7 +22,7 @@ services:
     container_name: todo-mongo
     image: mongo:7
     ports:
-      - "27018:27017"
+      - "27017:27017"
     volumes:
       - mongo-data:/data/db
     networks:
