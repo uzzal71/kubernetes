@@ -1,0 +1,23 @@
+Course Overview
+timestamps in Description
+
+Part 1:
++++++++
+01. History and Motivation
+02. Technology Overview
+03. Installation/Set Up
+04. Built-in Kubernetes Resource Types
+05. Helm
+
+Part 2:
+++++++
+06. Demo Application
+07. Deploying Demo Application to Kubernetes
+08. Extending the Kubernetes API
+09. Deploying Auxiliary Tooling
+10. Develper Experience
+11. Debugging
+12. Deploying to Multiple environments
+13. Cluster/node upgrades
+14. CI/CD
+15. What's next (out of scope) 
