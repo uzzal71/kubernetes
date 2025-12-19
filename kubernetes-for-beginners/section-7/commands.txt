@@ -1,5 +1,0 @@
-kubectl create -f service-definition.yaml
-kubectl get services
-curl http://ip-address:3008
-
-minikube service myapp-service --url

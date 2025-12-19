@@ -1,9 +1,0 @@
-# Deployment - 2
-# Introduction: Let us now add values for Deployment. Deployment is under apiVersion apps/v1
-
-# Instruction: Update values for apiVersion and kind
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-spec:
