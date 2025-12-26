@@ -1,0 +1,33 @@
+Service:
++++++++++++++
+URL: https://kubernetes.io/docs/concepts/services-networking/service/
+
+MetaLLB load-balancer:
++++++++++++++++++++++
+https://metallb.io/
+
+Class Three command:
++++++++++++++++++++++++
+k get deployment.apps
+k get pod
+k get pod -n kube-system
+kubectl edit configmap -n kube-system kube-proxy
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.15.3/config/manifests/metallb-native.yaml
+k get pod -A
+vim metallb-ipadd-pool.yaml
+vim metallb-pool-advertise.yaml
+kubectl apply -f metallb-ipadd-pool.yaml
+kubectl apply -f metallb-pool-advertise.yaml
+k get pod
+k get svc
+k delete deployment.apps nginx-deployment --force
+k get pod
+kubectl create deployment nginx-dep --image nginx --port 80
+k get svc
+k delete svc nginx-deployment
+kubectl expose deployment nginx-dep --type LoadBalancer --name nginx-svc
+
+https://longhorn.io/
+
+k create namespace dev
+k get namespace
