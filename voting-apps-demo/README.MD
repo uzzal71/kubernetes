@@ -59,10 +59,43 @@ Steps:
 - vote-service.yaml
 - result-service.yaml
 
-# Command
+# Command om pods directory
 ```bash
+kubectl get pod
+kubectl get svc
 kubectl apply -f .
 kubectl get pod
 kubectl get svc
 kubectl get node -o wide
+kubectl delete -f .
+```
+
+# Voting app running on deployment
+- vote-deployment.yaml
+- result-deployment.yaml
+- redis-deployment.yaml
+- db-deployment.yaml
+- worker-deployment.yaml
+
+# Command in deployments directory
+```bash
+kubectl get pod
+kubectl get svc
+kubectl apply -f .
+kubectl get svc
+kubectl get deployment
+kubectl get rs
+kubectl get pod
+kubectl get all
+kubectl get svc
+kubectl get node -o wide
+kubectl delete -f .
+```
+
+# Scale you application
+```bash
+kubectl get deployment
+kubectl scale deployment vote --replicas=5
+kubectl get deployment
+kubectl get pod
 ```
