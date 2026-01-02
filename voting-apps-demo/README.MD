@@ -47,3 +47,22 @@ Steps:
 - Create Service(NodePort/Load Balancer)
     - voting-app(Access Port: 5000)
     - result-app(Access Port: 5001)
+
+# Create a files
+- voting-app-pod.yaml
+- result-app-pod.yaml
+- redis-pod.yaml
+- db-pod.yaml
+- worker-pod.yaml
+- redis-service.yaml
+- db-service.yaml
+- vote-service.yaml
+- result-service.yaml
+
+# Command
+```bash
+kubectl apply -f .
+kubectl get pod
+kubectl get svc
+kubectl get node -o wide
+```
