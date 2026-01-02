@@ -1,0 +1,10 @@
+--> Create : > kubectl create -f deployment-definition.yaml
+             > kubectl create -f deployment-definition.yaml --record
+--> Get    : > kubectl get deployments
+             > kubectl get deployment myapp-deployment
+--> Update : > kubectl apply -f deployment-definition.yaml
+             > kubectl set image deployment myapp-deployment nginx=nginx:1.9.1
+--> Status : > kubectl rollout status deployment.apps/myapp-deployment
+             > kubectl rollout history deployment.apps/myapp-deployment
+--> Rollback:> kubectl rollout undo deployment/myapp-deployment
+--> Edit    :> kubectl edit deployment myapp-deployment --record
